@@ -1,0 +1,26 @@
+# Compiled MQL5 files
+*.ex5
+*.ex4
+
+# Logs and cache
+*.log
+*.hst
+*.mqlcache
+*.bmp
+
+# Tester files and reports
+Tester/
+MQL5/Logs/
+MQL5/Tester/
+MQL5/Files/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
