@@ -77,7 +77,7 @@ add filters (HTF trend, volatility, session filters)
 connect more advanced risk engines or management modules
 
 
-##🧠 About the Author
+## 🧠 About the Author
 
 Built and maintained by Hossein Asgari
 Algorithmic Trading Architect & Founder of Fintor AI
@@ -90,7 +90,7 @@ LinkedIn: https://www.linkedin.com/in/hossein-asgari-3b652416a/
 Website: https://fintorai.com
 
 
-##⚠️ Disclaimer
+## ⚠️ Disclaimer
 
 This repository is for educational and engineering demonstration only.
 It does not provide financial advice or guarantee profitability.
