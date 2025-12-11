@@ -51,3 +51,47 @@ TrendEngine-Core-MQL5/
   .gitignore
   LICENSE
   README.md
+```
+
+## 🚀 Quickstart (Conceptual)
+
+This is a template, not a finished trading system.
+Use it as a starting point for your own logic.
+
+Copy the MQL5 directory into your MetaTrader 5 Data Folder.
+
+Open TrendEngine_Core_Demo.mq5 in MetaEditor.
+
+Compile the EA.
+
+Attach it to a demo chart.
+
+Adjust inputs (lot size, MA periods, SL/TP) as desired.
+
+From here, you can:
+
+plug in your own signal logic
+
+add filters (HTF trend, volatility, session filters)
+
+connect more advanced risk engines or management modules
+
+
+##🧠 About the Author
+
+Built and maintained by Hossein Asgari
+Algorithmic Trading Architect & Founder of Fintor AI
+
+I design trading systems the way engineers build aircraft —
+modular, testable, and resilient.
+
+LinkedIn: https://www.linkedin.com/in/hossein-asgari-3b652416a/
+
+Website: https://fintorai.com
+
+
+##⚠️ Disclaimer
+
+This repository is for educational and engineering demonstration only.
+It does not provide financial advice or guarantee profitability.
+Always test thoroughly on a demo before risking real capital.
