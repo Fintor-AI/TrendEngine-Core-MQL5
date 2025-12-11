@@ -62,19 +62,19 @@ public:
       if(m_fast_handle == INVALID_HANDLE || m_slow_handle == INVALID_HANDLE)
          return;
 
-      // فقط روی بار بسته شده سیگنال بگیر
-      if(Bars(_Symbol,_Period) < m_ma_slow+2)
+      // only signal on closed bars
+      if(Bars(_Symbol,_Period) < m_ma_slow + 2)
          return;
 
-      double fast[],slow[];
+      double fast[3], slow[3];
       if(CopyBuffer(m_fast_handle,0,1,3,fast) != 3) return;
       if(CopyBuffer(m_slow_handle,0,1,3,slow) != 3) return;
 
-      
+      // simple MA crossover
       bool buy_signal  = (fast[1] > slow[1] && fast[2] <= slow[2]);
       bool sell_signal = (fast[1] < slow[1] && fast[2] >= slow[2]);
 
-      
+      // ignore if any position is already open (simple demo behaviour)
       if(PositionsTotal() > 0)
          return;
 
@@ -85,11 +85,12 @@ public:
      }
 
 private:
-   
+
    void              OpenPosition(ENUM_ORDER_TYPE type)
      {
-      double price = (type == ORDER_TYPE_BUY) ? SymbolInfoDouble(_Symbol,SYMBOL_ASK)
-                                              : SymbolInfoDouble(_Symbol,SYMBOL_BID);
+      double price = (type == ORDER_TYPE_BUY)
+                     ? SymbolInfoDouble(_Symbol,SYMBOL_ASK)
+                     : SymbolInfoDouble(_Symbol,SYMBOL_BID);
 
       double sl = 0.0;
       double tp = 0.0;
@@ -110,16 +111,16 @@ private:
       ZeroMemory(req);
       ZeroMemory(res);
 
-      req.action   = TRADE_ACTION_DEAL;
-      req.symbol   = _Symbol;
-      req.volume   = m_lots;
-      req.type     = type;
-      req.price    = price;
-      req.sl       = sl;
-      req.tp       = tp;
-      req.deviation= 20;
-      req.magic    = 20251212;
-      req.comment  = "TrendEngineCore demo";
+      req.action    = TRADE_ACTION_DEAL;
+      req.symbol    = _Symbol;
+      req.volume    = m_lots;
+      req.type      = type;
+      req.price     = price;
+      req.sl        = sl;
+      req.tp        = tp;
+      req.deviation = 20;
+      req.magic     = 20251212;
+      req.comment   = "TrendEngineCore demo";
 
       if(!OrderSend(req,res))
          Print(__FUNCTION__,": OrderSend failed. Error: ",GetLastError());
